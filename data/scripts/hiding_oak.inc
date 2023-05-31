@@ -1,20 +1,20 @@
 HidingOak_EventScript_ResetHunt::
 	msgbox HidingOak_Text_HideAllOaks, MSGBOX_SIGN
-	playfanfare MUS_OBTAIN_KEY_ITEM
     setvar VAR_HIDDEN_OAK_FOUND_COUNTER, 0
-    setvar VAR_HIDDEN_OAK_FLAG_POINTER, HIDDEN_OAK_INVISIBLE_FLAGS_START
+    setvar VAR_HIDDEN_OAK_FLAG_OFFSET, 0
     call HidingOak_EventScript_RecursivelyHideAllOaks
-    setvar VAR_HIDDEN_OAK_FLAG_POINTER, HIDDEN_OAK_FOUND_FLAGS_START
+    setvar VAR_HIDDEN_OAK_FLAG_OFFSET, 0
     call HidingOak_EventScript_RecursivelyUnFindAllOaks
 	warp MAP_PALLET_TOWN, 8, 16
+    playfanfare MUS_OBTAIN_KEY_ITEM
 	end
 
 HidingOak_EventScript_StartHunt::
 	msgbox HidingOak_Text_SpawnOaks, MSGBOX_SIGN
-	playfanfare MUS_OBTAIN_KEY_ITEM
     setvar VAR_HIDDEN_OAK_SPAWN_COUNTER_INDEX, 0
     call HidingOak_EventScript_RecursivelySpawnOaks
 	warp MAP_PALLET_TOWN, 8, 16
+    playfanfare MUS_OBTAIN_KEY_ITEM
 	end
 
 HidingOak_EventScript_TryEndHunt::
@@ -25,36 +25,35 @@ HidingOak_EventScript_TryEndHunt::
 	end
 
 HidingOak_EventScript_RecursivelyHideAllOaks::
-    setflag VAR_HIDDEN_OAK_FLAG_POINTER
-    addvar VAR_HIDDEN_OAK_FLAG_POINTER, 1
-    goto_if_le VAR_HIDDEN_OAK_FLAG_POINTER, HIDDEN_OAK_INVISIBLE_FLAGS_END, HidingOak_EventScript_RecursivelyHideAllOaks
+    setflagwithoffset HIDDEN_OAK_INVISIBLE_FLAGS_START, VAR_HIDDEN_OAK_FLAG_OFFSET
+    addvar VAR_HIDDEN_OAK_FLAG_OFFSET, 1
+    goto_if_le VAR_HIDDEN_OAK_FLAG_OFFSET, (MAX_HIDDEN_OAK_COUNT - 1), HidingOak_EventScript_RecursivelyHideAllOaks
     return
 
 HidingOak_EventScript_RecursivelyUnFindAllOaks::
-    clearflag VAR_HIDDEN_OAK_FLAG_POINTER
-    addvar VAR_HIDDEN_OAK_FLAG_POINTER, 1
-    goto_if_le VAR_HIDDEN_OAK_FLAG_POINTER, HIDDEN_OAK_FOUND_FLAGS_END, HidingOak_EventScript_RecursivelyUnFindAllOaks
+    clearflagwithoffset HIDDEN_OAK_FOUND_FLAGS_START, VAR_HIDDEN_OAK_FLAG_OFFSET
+    addvar VAR_HIDDEN_OAK_FLAG_OFFSET, 1
+    goto_if_le VAR_HIDDEN_OAK_FLAG_OFFSET, (MAX_HIDDEN_OAK_COUNT - 1), HidingOak_EventScript_RecursivelyUnFindAllOaks
     return
 
 HidingOak_EventScript_RecursivelySpawnOaks::
-    setvar VAR_HIDDEN_OAK_FLAG_POINTER, HIDDEN_OAK_INVISIBLE_FLAGS_START
     random MAX_HIDDEN_OAK_COUNT
-    addvar VAR_HIDDEN_OAK_FLAG_POINTER, VAR_RESULT
-    goto_if_unset VAR_HIDDEN_OAK_FLAG_POINTER, HidingOak_EventScript_RecursivelySpawnOaks
-    clearflag VAR_HIDDEN_OAK_FLAG_POINTER
+    copyvar VAR_HIDDEN_OAK_FLAG_OFFSET, VAR_RESULT
+    goto_if_unsetwithoffset HIDDEN_OAK_INVISIBLE_FLAGS_START, VAR_HIDDEN_OAK_FLAG_OFFSET, HidingOak_EventScript_RecursivelySpawnOaks
+    clearflagwithoffset HIDDEN_OAK_INVISIBLE_FLAGS_START, VAR_HIDDEN_OAK_FLAG_OFFSET
     addvar VAR_HIDDEN_OAK_SPAWN_COUNTER_INDEX, 1
     goto_if_lt VAR_HIDDEN_OAK_SPAWN_COUNTER_INDEX, HIDDEN_OAK_SPAWN_COUNT, HidingOak_EventScript_RecursivelySpawnOaks
     return
 
 HidingOak_EventScript_CheckOak::
-    setvar VAR_HIDDEN_OAK_FLAG_POINTER, (HIDDEN_OAK_FOUND_FLAGS_START + VAR_HIDDEN_OAK_CURRENT_DIALOG)
-    call_if_set VAR_HIDDEN_OAK_FLAG_POINTER, HidingOak_EventScript_FoundOldOak
-    call_if_unset VAR_HIDDEN_OAK_FLAG_POINTER, HidingOak_EventScript_FoundNewOak
+    copyvar VAR_HIDDEN_OAK_FLAG_OFFSET, VAR_HIDDEN_OAK_CURRENT_DIALOG
+    call_if_setwithoffset HIDDEN_OAK_FOUND_FLAGS_START, VAR_HIDDEN_OAK_FLAG_OFFSET, HidingOak_EventScript_FoundOldOak
+    call_if_unsetwithoffset HIDDEN_OAK_FOUND_FLAGS_START, VAR_HIDDEN_OAK_FLAG_OFFSET, HidingOak_EventScript_FoundNewOak
     return
 
 HidingOak_EventScript_FoundNewOak::
     msgbox HidingOak_Text_NewlyFoundOak, MSGBOX_NPC
-    setflag VAR_HIDDEN_OAK_FLAG_POINTER
+    setflagwithoffset HIDDEN_OAK_FOUND_FLAGS_START, VAR_HIDDEN_OAK_FLAG_OFFSET
     addvar VAR_HIDDEN_OAK_FOUND_COUNTER, 1
     return    
 

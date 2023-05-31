@@ -286,42 +286,26 @@ u8 *GetFlagAddr(u16 idx)
 
 bool8 FlagSet(u16 idx)
 {
-    // EDIT START
-    // If idx is the address of a valid variable, dereference it and use the contents as 'idx' for the flag
-    // Otherwise behave as normal 
-    u16 flagIdx = VarGet(idx);
-    // EDIT END
-    u8 *ptr = GetFlagAddr(flagIdx);
+    u8 *ptr = GetFlagAddr(idx);
     if (ptr != NULL)
-        *ptr |= 1 << (flagIdx & 7);
+        *ptr |= 1 << (idx & 7);
     return FALSE;
 }
 
 bool8 FlagClear(u16 idx)
 {
-    // EDIT START
-    // If idx is the address of a valid variable, dereference it and use the contents as 'idx' for the flag
-    // Otherwise behave as normal 
-    // u16 flagIdx = VarGet(idx);
-    u16 flagIdx = VarGet(idx);
-    // EDIT END
-    u8 *ptr = GetFlagAddr(flagIdx);
+    u8 *ptr = GetFlagAddr(idx);
     if (ptr != NULL)
-        *ptr &= ~(1 << (flagIdx & 7));
+        *ptr &= ~(1 << (idx & 7));
     return FALSE;
 }
 
 bool8 FlagGet(u16 idx)
 {
-    // EDIT START
-    // If idx is the address of a valid variable, dereference it and use the contents as 'idx' for the flag
-    // Otherwise behave as normal 
-    u16 flagIdx = VarGet(idx);
-    // EDIT END
-    u8 *ptr = GetFlagAddr(flagIdx);
+    u8 *ptr = GetFlagAddr(idx);
     if (ptr == NULL)
         return FALSE;
-    if (!(*ptr & 1 << (flagIdx & 7)))
+    if (!(*ptr & 1 << (idx & 7)))
         return FALSE;
     return TRUE;
 }

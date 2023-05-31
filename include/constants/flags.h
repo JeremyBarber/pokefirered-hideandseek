@@ -189,17 +189,15 @@
 #define FLAG_HIDE_MISC_KANTO_ROCKETS                       0x0AD
 #define FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS 0x0AE
 
-// Unused?
-#define FLAG_0x0AF               0x0AF
-
 // Hidden Oak visibility
-#define HIDDEN_OAK_INVISIBLE_FLAGS_START (0x0FF + 1)
+#define HIDDEN_OAK_INVISIBLE_FLAGS_START 0x0AF
 
-#define HIDDEN_OAK_INVISIBLE_FLAG_1      0x100
-#define HIDDEN_OAK_INVISIBLE_FLAG_2      0x101
-#define HIDDEN_OAK_INVISIBLE_FLAG_3      0x102
-#define HIDDEN_OAK_INVISIBLE_FLAG_4      0x103
-#define HIDDEN_OAK_INVISIBLE_FLAG_5      0x104
+#define FLAG_HIDE_OAK_1      0x0AF
+#define FLAG_HIDE_OAK_2      0x0B0
+#define FLAG_HIDE_OAK_3      0x0B1
+#define FLAG_HIDE_OAK_4      0x0B2
+#define FLAG_HIDE_OAK_5      0x0B3
+#define FLAG_HIDE_OAK_6      0x0B4
 #define FLAG_0x0B5               0x0B5
 #define FLAG_0x0B6               0x0B6
 #define FLAG_0x0B7               0x0B7

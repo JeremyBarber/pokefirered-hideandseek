@@ -89,7 +89,7 @@
 #define VAR_HIDDEN_OAK_FOUND_COUNTER       0x4029
 #define VAR_HIDDEN_OAK_CURRENT_DIALOG      0x402A
 #define VAR_HIDDEN_OAK_SPAWN_COUNTER_INDEX 0x402B
-#define VAR_HIDDEN_OAK_FLAG_POINTER        0x402C
+#define VAR_HIDDEN_OAK_FLAG_OFFSET         0x402C
 
 #define VAR_0x402D                         0x402D
 #define VAR_0x402E                         0x402E
@@ -191,7 +191,6 @@
 #define VAR_MAP_SCENE_SIX_ISLAND_POKEMON_CENTER_1F                             0x4089
 #define VAR_MAP_SCENE_CINNABAR_ISLAND_2                                        0x408A
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
-
 
 #define VAR_0x408C                 0x408C
 #define VAR_0x408D                 0x408D
