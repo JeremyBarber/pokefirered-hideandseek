@@ -9,29 +9,31 @@ HidingOak_Text_HuntSuccess::
 
 HidingOak_Text_HuntFailure::
     .string "You didn't win ... yet\p"
-    .string "You've only found {STR_VAR_1}$"
+    .string "You've only found {STR_VAR_1} of {STR_VAR_2}$"
 
 HidingOak_Text_NewlyFoundOak::
-    .string "Well done!\p"
-    .string "Dont forget my secret\n"
-    .string "passphrase...$"
+    .string "Haha! Well done {PLAYER}!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}\p"
+    .string "Now then, let's see\n"
+    .string "what you can do...$"
+
+HidingOak_Text_DefeatedOak::
+    .string "Bravo {PLAYER}!\n"
+    .string "Very well done indeed.$"
 
 HidingOak_Text_PreviouslyFoundOak::
-    .string "Hello again.\p"
-    .string "Did you forget my secret\n"
-    .string "passphrase?$"
+    .string "My secret passphrase is:$"
 
 HidingOak_Text_SecretPhrase_1::
-    .string "It was a dark and stormy night$"
+    .string "{COLOR GREEN}It was a dark and stormy night$"
 
 HidingOak_Text_SecretPhrase_2::
-    .string "and the skipper said to the mate$"
+    .string "{COLOR GREEN}and the skipper said to the mate$"
 
 HidingOak_Text_SecretPhrase_3::
-    .string "Mate, tell me a story$"
+    .string "{COLOR GREEN}Mate, tell me a story$"
 
 HidingOak_Text_SecretPhrase_4::
-    .string "and this is the story he told$"
+    .string "{COLOR GREEN}and this is the story he told$"
 
 HidingOak_Text_SecretPhrase_5::
-    .string "It was a bright and peaceful day$"
+    .string "{COLOR GREEN}It was a bright and peaceful day$"
