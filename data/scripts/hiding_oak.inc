@@ -1,22 +1,24 @@
 HidingOak_EventScript_ResetHunt::
-	msgbox HidingOak_Text_HideAllOaks, MSGBOX_SIGN
     setvar VAR_HIDDEN_OAK_FOUND_COUNTER, 0
     setvar VAR_HIDDEN_OAK_FLAG_OFFSET, 0
     call HidingOak_EventScript_RecursivelyHideAllOaks
-	warp MAP_PALLET_TOWN, 8, 16
+    setvar VAR_HIDDEN_OAK_HUNT_STATUS, 1
 	end
 
 HidingOak_EventScript_StartHunt::
 	msgbox HidingOak_Text_SpawnOaks, MSGBOX_SIGN
+    setflag FLAG_HIDE_OAK_IN_HIS_LAB
     givemon SPECIES_EEVEE, 25
     setvar VAR_HIDDEN_OAK_SPAWN_COUNTER_INDEX, 0
     call HidingOak_EventScript_RecursivelySpawnOaks
 	warp MAP_PALLET_TOWN, 8, 16
+    setvar VAR_HIDDEN_OAK_HUNT_STATUS, 2
 	end
 
 HidingOak_EventScript_TryEndHunt::
-    call_if_ge VAR_HIDDEN_OAK_FOUND_COUNTER, HIDDEN_OAK_SPAWN_COUNT, HidingOak_EventScript_HuntSuccess
-    call_if_lt VAR_HIDDEN_OAK_FOUND_COUNTER, HIDDEN_OAK_SPAWN_COUNT, HidingOak_EventScript_HuntFailure
+    goto_if_eq VAR_HIDDEN_OAK_HUNT_STATUS, 1, HidingOak_EventScript_HuntNotStarted
+    goto_if_eq VAR_HIDDEN_OAK_HUNT_STATUS, 2, HidingOak_EventScript_HuntFailure
+    goto_if_eq VAR_HIDDEN_OAK_HUNT_STATUS, 3, HidingOak_EventScript_HuntSuccess
 	end
 
 HidingOak_EventScript_RecursivelyHideAllOaks::
@@ -34,6 +36,10 @@ HidingOak_EventScript_RecursivelySpawnOaks::
     goto_if_lt VAR_HIDDEN_OAK_SPAWN_COUNTER_INDEX, HIDDEN_OAK_SPAWN_COUNT, HidingOak_EventScript_RecursivelySpawnOaks
     return
 
+HidingOak_EventScript_HuntNotStarted::
+    msgbox HidingOak_Text_HuntNotStarted, MSGBOX_SIGN
+    end
+
 HidingOak_EventScript_HuntSuccess::
 	playfanfare MUS_OBTAIN_BADGE
     msgbox HidingOak_Text_HuntSuccess, MSGBOX_SIGN
@@ -47,6 +53,11 @@ HidingOak_EventScript_HuntFailure::
 
 HidingOak_EventScript_DefeatedOak::
     addvar VAR_HIDDEN_OAK_FOUND_COUNTER, 1
+    call_if_eq VAR_HIDDEN_OAK_FOUND_COUNTER, HIDDEN_OAK_SPAWN_COUNT, HidingOak_EventScript_SetHuntCompleted
+    return
+
+HidingOak_EventScript_SetHuntCompleted::
+    setvar VAR_HIDDEN_OAK_HUNT_STATUS, 3
     return
 
 HidingOak_EventScript_FoundOak_1::

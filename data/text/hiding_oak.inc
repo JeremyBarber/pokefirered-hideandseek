@@ -1,8 +1,8 @@
-HidingOak_Text_HideAllOaks::
-    .string "Resetting all Oaks to hidden$"
-
 HidingOak_Text_SpawnOaks::
     .string "Spawning a new selection of Oaks$"
+
+HidingOak_Text_HuntNotStarted::
+    .string "It's blank$"
 
 HidingOak_Text_HuntSuccess::
     .string "You win!$"
