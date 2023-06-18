@@ -101,22 +101,22 @@ PalletTown_ProfessorOaksLab_Text_OakHeyDontGoAwayYet::
     .string "Don't go away yet!$"
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingCharmander::
-    .string "Ah! CHARMANDER is your choice.\n"
+    .string "Ah! DODUO is your choice.\n"
     .string "You should raise it patiently.\p"
     .string "So, {PLAYER}, you're claiming the\n"
-    .string "FIRE POKéMON CHARMANDER?$"
+    .string "FLYING POKéMON DODUO?$"
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingSquirtle::
-    .string "Hm! SQUIRTLE is your choice.\n"
+    .string "Hm! HORSEA is your choice.\n"
     .string "It's one worth raising.\p"
     .string "So, {PLAYER}, you've decided on the\n"
-    .string "WATER POKéMON SQUIRTLE?$"
+    .string "WATER POKéMON HORSEA?$"
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingBulbasaur::
-    .string "I see! BULBASAUR is your choice.\n"
+    .string "I see! MEOWTH is your choice.\n"
     .string "It's very easy to raise.\p"
     .string "So, {PLAYER}, you want to go with\n"
-    .string "the GRASS POKéMON BULBASAUR?$"
+    .string "the NORMAL POKéMON MEOWTH?$"
 
 PalletTown_ProfessorOaksLab_Text_OakThisMonIsEnergetic::
     .string "This POKéMON is really quite\n"
@@ -354,4 +354,22 @@ PalletTown_ProfessorOaksLab_Text_RivalIllCompleteThePokedex::
     .string "I think I'll try looking around\n"
     .string "ONE ISLAND first…\p"
     .string "Anyways, I'm outta here!$"
+
+PalletTown_ProfessorOaksLab_Text_OakGivesHM::
+    .string "OAK: By the way, I had something\n"
+    .string "else to give you both as well.$"
+
+PalletTown_ProfessorOaksLab_Text_OakHandsOverHM::
+    .string "{PLAYER} received an HM\n"
+    .string "from PROF. OAK!$"
+
+PalletTown_ProfessorOaksLab_Text_OakExplainsHM::
+    .string "Oak: You should be able to use\n"
+    .string "that to get around easier.\p"
+    .string "I've also pulled a couple of\n"
+    .string "strings to give you this too.$"
+
+PalletTown_ProfessorOaksLab_Text_OakRegrets::
+    .string "Oak: {RIVAL} really should have\n"
+    .string "waited for me to finish...$"
 
