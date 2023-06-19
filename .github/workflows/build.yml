@@ -12,9 +12,6 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GAME_VERSION: FIRERED
       GAME_LANGUAGE: ENGLISH
-      GAME_REVISION: 0
-      MODERN: 1
-      COMPARE: 0
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -50,15 +47,15 @@ jobs:
           tag_prefix: "v"
           major_pattern: "(MAJOR)"
           minor_pattern: "(MINOR)"
-          format: "${major}.${minor}"
+          format: "${major}.${minor}.{patch}"
           bump_each_commit: true
 
       - name: Release
         uses: actions/create-release@v1
         id: create-release
         with:
-          release_name: v${{ steps.version.outputs.version }}
-          tag_name: v${{ steps.version.outputs.version_tag }}
+          release_name: ${{ steps.version.outputs.version }}
+          tag_name: ${{ steps.version.outputs.version_tag }}
 
       - name: Upload ROM
         uses: actions/upload-release-asset@v1
