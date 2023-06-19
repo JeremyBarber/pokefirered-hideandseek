@@ -16,7 +16,9 @@ jobs:
       COMPARE: 0
     steps:
       - name: Checkout
-        uses: actions/checkout@develop
+        uses: actions/checkout@master
+        with:
+          ref: 'develop'
 
       - name: Checkout agbcc
         uses: actions/checkout@master
