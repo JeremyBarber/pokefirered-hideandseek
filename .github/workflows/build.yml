@@ -9,6 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GAME_VERSION: FIRERED
       GAME_LANGUAGE: ENGLISH
       GAME_REVISION: 0
