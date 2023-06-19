@@ -57,8 +57,8 @@ jobs:
         uses: actions/create-release@v1
         id: create-release
         with:
-          release_name: v${{ steps.version.outputs.version}}
-          tag_name: v${{ steps.version,outputs.version_tag }}
+          release_name: v${{ steps.version.outputs.version }}
+          tag_name: v${{ steps.version.outputs.version_tag }}
 
       - name: Upload ROM
         uses: actions/upload-release-asset@v1
