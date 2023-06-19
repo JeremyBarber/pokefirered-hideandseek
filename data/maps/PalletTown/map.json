@@ -239,22 +239,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "HidingOak_EventScript_StartHunt"
-    },
-    {
-      "type": "sign",
-      "x": 10,
-      "y": 16,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "HidingOak_EventScript_ResetHunt"
-    },
-    {
-      "type": "sign",
-      "x": 2,
-      "y": 16,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "HidingOak_EventScript_TryEndHunt"
     }
   ]
 }

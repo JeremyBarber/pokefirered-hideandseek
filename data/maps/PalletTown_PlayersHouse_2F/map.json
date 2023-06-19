@@ -13,8 +13,10 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
-  "object_events": [],
+  "connections": 0,
+  "object_events": [
+
+  ],
   "warp_events": [
     {
       "x": 10,
@@ -24,7 +26,26 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 3,
+      "elevation": 3,
+      "var": "VAR_HIDDEN_OAK_HUNT_STATUS",
+      "var_value": "0",
+      "script": "HidingOak_EventScript_ResetHunt"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 3,
+      "elevation": 3,
+      "var": "VAR_HIDDEN_OAK_HUNT_STATUS",
+      "var_value": "0",
+      "script": "HidingOak_EventScript_ResetHunt"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
