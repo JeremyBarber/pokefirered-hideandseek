@@ -41,7 +41,7 @@ HidingOak_EventScript_HuntNotStarted::
     end
 
 HidingOak_EventScript_HuntSuccess::
-	playfanfare MUS_OBTAIN_BADGE
+    playfanfare MUS_OBTAIN_BADGE
     buffernumberstring STR_VAR_1, VAR_HIDDEN_OAK_TIMESTAMP_HOURS
     buffernumberstring STR_VAR_2, VAR_HIDDEN_OAK_TIMESTAMP_MINUTES
     buffernumberstring STR_VAR_3, VAR_HIDDEN_OAK_TIMESTAMP_SECONDS
