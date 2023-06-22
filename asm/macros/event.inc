@@ -1655,6 +1655,14 @@
 	.2byte \value
 	.endm
 
+	@ Stores the components of the current timestamp into provided variables
+	.macro storetimestamp hours:req, minutes:req, seconds:req
+	.byte 0x0d8
+	.2byte \hours
+	.2byte \minutes
+	.2byte \seconds
+	.endm
+
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req

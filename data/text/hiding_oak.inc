@@ -5,10 +5,11 @@ HidingOak_Text_HuntNotStarted::
     .string "It's blank$"
 
 HidingOak_Text_HuntSuccess::
-    .string "You win!$"
+    .string "You finished the hunt!\p"
+    .string "Time: {STR_VAR_1}h {STR_VAR_2}m {STR_VAR_3}s$"
 
 HidingOak_Text_HuntFailure::
-    .string "You didn't win ... yet\p"
+    .string "You're not done yet!'\p"
     .string "You've only found {STR_VAR_1} of {STR_VAR_2}$"
 
 HidingOak_Text_NewlyFoundOak::

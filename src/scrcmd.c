@@ -2273,3 +2273,15 @@ bool8 ScrCmd_setmonmetlocation(struct ScriptContext * ctx)
         SetMonData(&gPlayerParty[partyIndex], MON_DATA_MET_LOCATION, &location);
     return FALSE;
 }
+
+bool8 ScrCmd_storetimestamp(struct ScriptContext * ctx)
+{
+    u16 *ptrHours = GetVarPointer(ScriptReadHalfword(ctx));
+    u16 *ptrMinutes = GetVarPointer(ScriptReadHalfword(ctx));
+    u16 *ptrSeconds = GetVarPointer(ScriptReadHalfword(ctx));
+
+    *ptrHours = gSaveBlock2Ptr->playTimeHours;
+    *ptrMinutes = gSaveBlock2Ptr->playTimeMinutes;
+    *ptrSeconds = gSaveBlock2Ptr->playTimeSeconds;
+    return FALSE;
+}

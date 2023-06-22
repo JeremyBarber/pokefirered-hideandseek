@@ -92,9 +92,9 @@
 #define VAR_HIDDEN_OAK_FLAG_OFFSET         0x402B
 #define VAR_HIDDEN_OAK_HUNT_STATUS         0x402C
 
-#define VAR_0x402D                         0x402D
-#define VAR_0x402E                         0x402E
-#define VAR_0x402F                         0x402F
+#define VAR_HIDDEN_OAK_TIMESTAMP_HOURS     0x402D
+#define VAR_HIDDEN_OAK_TIMESTAMP_MINUTES   0x402E
+#define VAR_HIDDEN_OAK_TIMESTAMP_SECONDS   0x402F
 
 #define VAR_ICE_STEP_COUNT                 0x4030
 #define VAR_STARTER_MON                    0x4031 // 0: Bulbasaur, 1: Squirtle, 2: Charmander
