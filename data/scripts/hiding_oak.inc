@@ -42,6 +42,9 @@ HidingOak_EventScript_HuntNotStarted::
 
 HidingOak_EventScript_HuntSuccess::
 	playfanfare MUS_OBTAIN_BADGE
+    buffernumberstring STR_VAR_1, VAR_HIDDEN_OAK_TIMESTAMP_HOURS
+    buffernumberstring STR_VAR_2, VAR_HIDDEN_OAK_TIMESTAMP_MINUTES
+    buffernumberstring STR_VAR_3, VAR_HIDDEN_OAK_TIMESTAMP_SECONDS
     msgbox HidingOak_Text_HuntSuccess, MSGBOX_SIGN
     return
 
@@ -57,6 +60,7 @@ HidingOak_EventScript_DefeatedOak::
     return
 
 HidingOak_EventScript_SetHuntCompleted::
+    storetimestamp VAR_HIDDEN_OAK_TIMESTAMP_HOURS, VAR_HIDDEN_OAK_TIMESTAMP_MINUTES, VAR_HIDDEN_OAK_TIMESTAMP_SECONDS
     setvar VAR_HIDDEN_OAK_HUNT_STATUS, 3
     return
 
